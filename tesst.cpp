@@ -15,6 +15,10 @@ int main(){
 	};
 	int choice;
 	int menuLength=5;
+	int pos;
+	struct Dish newMenu;
+	int suaId;
+	char tkName[100];
 	do{
 		printf("menu\n");
 		printf("1. In ra cac phan tu co trong menu mon an theo rang 1.menber.value\n");
@@ -36,8 +40,6 @@ int main(){
 				break;
 			}
 			case 2:{
-				int pos;
-				struct Dish newMenu;
 				printf("menu\n");
 				for(int i=0;i<menuLength;i++){
 					printf("id: %d; ten: %s; gia: %.2f\n",menu[i].id,menu[i].name,menu[i].price);
@@ -46,7 +48,7 @@ int main(){
 				scanf("%d",&pos);
 				getchar();
 				if(pos<1||pos>menuLength+1){
-					printf("vi tri ko hop len");
+					printf("vi tri ko hop len\n");
 					break;
 				}else{
 					printf("moi nhap mon an moi: \n");
@@ -68,12 +70,11 @@ int main(){
 				}			
 				break;
 			case 3:{
-				int suaId;
 				printf("moi chon ID muon sua: ");
 				scanf("%d",&suaId);
 				getchar();
 				if(suaId < 1|| suaId > menuLength){
-					printf("sai Id");
+					printf("sai Id\n");
 				}else{
 					printf("moi nhap ten cho mon: \n");
 					fgets(menu[suaId-1].name, sizeof(menu[suaId-1].name), stdin);
@@ -93,7 +94,7 @@ int main(){
 				scanf("%d",&pos);
 				getchar();
 				if(pos>1&&pos>=menuLength+1){
-					printf("sai vi tri");
+					printf("sai vi tri\n");
 				}else{
 					
 					for(int i=pos;i<menuLength-1;i++){
@@ -124,7 +125,6 @@ int main(){
 				break;
 				}
 			case 6:{
-				char tkName[100];
 				printf("moi nhap ten mon can tim: \n");
 				fgets(tkName, sizeof(tkName), stdin);
 				tkName[strcspn(tkName,"\n")]='\0';
